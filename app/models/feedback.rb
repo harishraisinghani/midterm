@@ -1,4 +1,4 @@
-Class Feedback < ActiveRecord::Base
+class Feedback < ActiveRecord::Base
 
 
 
