@@ -1,16 +1,22 @@
+
+body {
+  background-image: url(http://blueandgoldonline.org/wp/wp-content/uploads/2015/05/1396195125942.jpg);
+  background-size: cover;
+}
+
 .filter-area {
   text-align: right;
 }
-
-
 
 /* Snippets */
 .warning{
   color: #F06666;
 }
+
 .subdued{
   color: #999;
 }
+
 .more-subdued{
   color: #AAA;
 }
@@ -22,4 +28,56 @@
 /* *BUTTONS */
 .standard-btn-width{
   width: 300px;
+}
+
+.btn-info {
+    background-image: none;
+    color: #fff;
+    background-color: #a81cc0;
+    border-color: #46b8da;
+    margin-top: 8px;
+}
+
+.search_row {
+  margin-top: 250px;
+}
+
+.search_button1 {
+  height: 100px;
+  font-size: 22px;
+}
+
+.searchbar1 {
+  height: 100px;
+  font-size: 22px;
+}
+
+.nav_buttons {
+  margin-top: 313px;
+  margin-bottom: 0px;
+  -webkit-filter: grayscale(70%); /* Chrome, Safari, Opera */
+  filter: grayscale(70%);
+}
+
+.col_hov:hover {
+  -webkit-filter: sepia(70%); /* Chrome, Safari, Opera */
+  filter: sepia(10%);
+}
+
+.col_blk {
+  background-image: url(http://www.slate.com/content/dam/slate/articles/technology/technology/2013/08/130813_FT_MandatoryCodeAcademy.jpg.CROP.rectangle3-large.jpg);
+  background-size: cover;
+  height: 315px;
+}
+
+.col_red {
+  background-image: url(http://cphpost.dk/wp-content/uploads/2016/03/iStock_000043528808_Small-630x390.jpg);
+  background-size: cover;
+  height: 315px;
+}
+
+.col_green {
+  background-image:url(https://img.grouponcdn.com/iam/pPzaS8gN4HX9bnpfwfUi/8A-2048x1242/v1/c700x420.jpg);
+  background-size: cover;
+  height: 315px;
 }
