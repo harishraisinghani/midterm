@@ -10,6 +10,7 @@ get '/search/:skill_id' do
 end
 
 get '/profile/:id' do
+  @user = User.find(params[:id])
   erb :profile
 end
 
@@ -17,15 +18,15 @@ post '/favourites' do
   "figure out yo faves"
 end
 
-post '/profile/feedbacks' do
+post '/profile/:id/feedbacks' do
 
 end
 
-delete '/profile/feedback/:id' do
+delete '/profile/:id/feedbacks/:id' do
  "for feedback deletion"
 end
 
-post 'user/skills' do
+post 'profile/skills' do
 
 end
 
