@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812034731) do
+ActiveRecord::Schema.define(version: 20160812093001) do
 
   create_table "favourites", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,20 +35,20 @@ ActiveRecord::Schema.define(version: 20160812034731) do
     t.datetime "updated_at"
   end
 
+  create_table "user_skills", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "user_id"
+    t.integer  "years_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
-  end
-
-  create_table "userskills", force: :cascade do |t|
-    t.integer  "skill_id"
-    t.integer  "user_id"
-    t.integer  "years_experience"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
