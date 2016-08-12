@@ -29,25 +29,25 @@ end
 get '/profile/:id' do
   if is_logged_in?
     @user = User.find(session[:user_id])
+    erb :profile
   else
     redirect '/'
-  end
-  erb :profile
+  end  
 end
 
 post '/favourites' do
   "figure out yo faves"
 end
 
-post '/profile/feedbacks' do
+post '/profile/:id/feedbacks' do
 
 end
 
-delete '/profile/feedback/:id' do
+delete '/profile/:id/feedbacks/:id' do
  "for feedback deletion"
 end
 
-post 'user/skills' do
+post 'profile/skills' do
 
 end
 

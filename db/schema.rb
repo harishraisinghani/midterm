@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812093001) do
+ActiveRecord::Schema.define(version: 20160812194127) do
 
   create_table "favourites", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160812093001) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+    t.text     "about"
+    t.string   "picture"
   end
 
 end
