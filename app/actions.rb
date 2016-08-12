@@ -12,7 +12,7 @@ get '/' do
 end
 
 post '/' do
-  skill = Skill.find_by(name: params[:content])
+  skill = Skill.find_by(name: params[:content].capitalize)
   skill_id = skill.id
   if is_logged_in?
     redirect "search/#{skill_id}"
@@ -29,6 +29,7 @@ end
 get '/profile/:id' do
   if is_logged_in?
     @user = User.find(session[:user_id])
+    @profile = User.find(params['id'])
     erb :profile
   else
     redirect '/'
