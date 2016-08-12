@@ -9,7 +9,7 @@ require './app/models/favourite'
 require './app/models/feedback'
 require './app/models/skill'
 require './app/models/user'
-require './app/models/userskill'
+require './app/models/user_skill'
 
 # Add new app/ and lib/ files here when they are created.
 
