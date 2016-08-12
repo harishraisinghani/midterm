@@ -29,10 +29,11 @@ end
 get '/profile/:id' do
   if is_logged_in?
     @user = User.find(session[:user_id])
+    @profile = User.find(params['id'])
     erb :profile
   else
     redirect '/'
-  end  
+  end 
 end
 
 post '/favourites' do

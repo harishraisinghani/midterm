@@ -3,19 +3,19 @@
   <div class= "row">
     <div class="col-md-2">
       <div class= "profile">
-        <%= @user.first_name %> <%= @user.last_name %>
-        <img src="http://zblogged.com/wp-content/uploads/2015/11/17.jpg" class="img-responsive">
+        <%= @profile.first_name %>
+        <img src=<%= @profile.picture %> class="img-responsive">
       </div>
     </div>
 
     <div class="col-md-8">
       <div class="form-group">
-        <textarea class="form-control" name= "content" rows="5"><%= @user.about %></textarea>
+        <textarea class="form-control" name= "content" rows="5"><%= @profile.about %></textarea>
       </div>
     </div>
     
     <div class="col-md-2">
-      <a href="mailto:<%= @user.email %>"><button class="btn btn-primary btn-lg">Connect with me</button></a>
+      <a href="mailto:<%= @profile.email %>"><button class="btn btn-primary btn-lg">Connect with me</button></a>
     </div>
   </div>
 
