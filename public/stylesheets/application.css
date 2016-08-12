@@ -1,0 +1,25 @@
+.filter-area {
+  text-align: right;
+}
+
+
+
+/* Snippets */
+.warning{
+  color: #F06666;
+}
+.subdued{
+  color: #999;
+}
+.more-subdued{
+  color: #AAA;
+}
+
+.pad-right{
+  padding-right: 10;
+}
+
+/* *BUTTONS */
+.standard-btn-width{
+  width: 300px;
+}
