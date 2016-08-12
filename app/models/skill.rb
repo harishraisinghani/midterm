@@ -1,6 +1,9 @@
 class Skill < ActiveRecord::Base
+  
+  belongs_to :userskill
 
-  #shit to do with our Skill class
-  validates :name, presence: true, length: { minimum: 4 }
+  validates :name, 
+    presence: true, 
+    length: { minimum: 4 }
 
 end
