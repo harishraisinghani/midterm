@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row search_row">
     <div class="input-group">
-      <input type="text" class="form-control searchbar1" placeholder="What do you want to learn?">
+    <form class="input-group" method="post">
+      <input type="text" class="form-control searchbar1" name="content" id="search" placeholder="What do you want to learn?">
         <span class="input-group-btn">
-          <button class="btn btn-default search_button1" type="button">Learn!</button>
+          <button class="btn btn-default search_button1" type="submit">Learn!</button>
+    </form>
         </span>
       </div>
   </div>
 </div>
 <div class="row nav_buttons">
-<a href="/">
+<a href="/search/1">
   <div class="col-md-4 col_blk col_hov">
   </div>
 </a>   
-<a href="/">
+<a href="/search/2">
   <div class="col-md-4 col_red col_hov">
   </div> 
 </a>  
-<a href="/">
+<a href="/search/">
   <div class="col-md-4 col_green col_hov">
   </div>
 </a>

@@ -3,18 +3,19 @@
   <div class= "row">
     <div class="col-md-2">
       <div class= "profile">
+        <%= @user.first_name %> <%= @user.last_name %>
         <img src="http://zblogged.com/wp-content/uploads/2015/11/17.jpg" class="img-responsive">
       </div>
     </div>
 
     <div class="col-md-8">
       <div class="form-group">
-        <textarea class="form-control" name= "content" rows="5">Roody Poo Candy Ass! Layeth the smacketh down on your candy ass! Know your role, and shut your mouth! Finally, the Rock, has come back to Phoenix! I'm gonna stick your head so far up your ass your gonna have to cut holes in your nipples to see! The great one says you can kiss his ass. The Rock says know your damn role. Roody Poo Candy Ass! Layeth the smacketh down on your candy ass!</textarea>
+        <textarea class="form-control" name= "content" rows="5"><%= @user.about %></textarea>
       </div>
     </div>
     
     <div class="col-md-2">
-      <button class="btn btn-primary btn-lg">Connect with me</button>
+      <a href="mailto:<%= @user.email %>"><button class="btn btn-primary btn-lg">Connect with me</button></a>
     </div>
   </div>
 
@@ -54,6 +55,22 @@
     <div class="col-md-8">
         <div class = "feedback">
           <br style="line-height: 250%">
+
+          <div class="row">
+            <div class="col-md-2">
+              <div class="row">
+                <img src="http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B85E200000578-3605456-image-m-37_1464040594420.jpg" class="img-responsive">
+              </div>
+              <div class="row">
+                <img src=https://www.newbrandanalytics.com/blog/wp-content/uploads/2013/03/3-5-stars.png class="img-responsive" >
+              </div>
+              <br>
+            </div>
+            <div class="col-md-10">
+              <%#<%= erb :feedback, locals: {:user => @user} %> 
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-2">
               <div class="row">
