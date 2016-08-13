@@ -8,9 +8,12 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
+require 'will_paginate'
+require 'will_paginate/active_record' 
+require 'will_paginate-bootstrap'
+
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
-
 # Global Sinatra configuration
 configure do
   set :root, APP_ROOT.to_path
@@ -25,6 +28,7 @@ end
 # Development and Test Sinatra Configuration
 configure :development, :test do
   require 'pry'
+
 end
 
 # Production Sinatra Configuration

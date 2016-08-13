@@ -21,6 +21,7 @@ end
 
 get '/search/:skill_id' do
   if is_logged_in?
+    @matches = UserSkill.where("skill_id = ?", params['skill_id']).paginate(page: params[:page], per_page: 5)
     @user = User.find(session[:user_id])
   end
   erb :search
