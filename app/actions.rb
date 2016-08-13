@@ -29,7 +29,6 @@ end
 get '/profile/:id' do
 
   if is_logged_in?
-
     @user = User.find(session[:user_id])
     @profile = User.find(params['id'])
    
@@ -46,10 +45,8 @@ get '/profile/:id' do
       @student_avg_feedback
     else
       @student_avg_feedback = 0
-    end
-    
+    end    
     erb :profile
-
   else
     redirect '/'
   end 
@@ -59,8 +56,15 @@ post '/favourites' do
   "figure out yo faves"
 end
 
-post '/profile/:id/feedbacks' do
-
+post '/feedback' do
+  feedback = Feedback.new(
+    user_id: params[:user_id],
+    rating: params["input-4"],
+    user_type: 2,
+    content: params[:content]
+    )
+  feedback.save
+  redirect(back)
 end
 
 delete '/profile/:id/feedbacks/:id' do

@@ -91,12 +91,13 @@
               <br>
             </div>
             <div class="col-md-10">
-              <%= erb :feedback, locals: {:user => @user} %> 
+              <%= erb :feedback, locals: {:user => @profile} %> 
             </div>
           </div>
 
           <div class="row">
             <% @all_feedback = @profile.feedbacks %>
+            <% @all_feedback = @all_feedback.sort_by { |feedback| feedback.created_at }.reverse %> 
             <% @all_feedback.each do |feedback| %>
               <div class="col-md-2">
                 <!-- <div class="row">
