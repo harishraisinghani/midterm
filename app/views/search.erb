@@ -9,48 +9,46 @@
     </div>
 
     <div class="col-md-8 filter-area" >
-      
-      <span class="filter-results pad-right subdued">Filter Results By</span>
-      
-      
-      
-      <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Highest Reviews <span class="caret"></span>
+      <span class="filter-results pad-right subdued">Filter Results By</span>  
+      <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highest Reviews 
+      <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu">
-      </ul>
-      
+        <ul class="dropdown-menu">
+        </ul>  
     </div>
-
   </div>
 
 
-
   <div class="searchresults" style="padding: 5em 0em 5em 0em;">
-
-    <div class="row">
-      <div class="col-md-2">
-        <div>
-          <button type="button" class="btn btn-link">John Doe</button>
-          <img src="http://klaus-doldinger.com/wp-content/uploads/2015/05/Passport-Ernst-Stroer.jpg" alt="Mountain View" style="width:150px;height:150px;" class="img-circle">
+    <% matches = UserSkill.where("skill_id = ?", params['skill_id']) %>
+    <% matches.each do |userskill| %>
+      <div class="row">
+        <div class="col-md-2">
+          <div>
+            <button type="button" class="btn btn-link"><%= userskill.user.first_name %> </button>
+            <img src="http://klaus-doldinger.com/wp-content/uploads/2015/05/Passport-Ernst-Stroer.jpg" alt="Mountain View" style="width:150px;height:150px;" class="img-circle">
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-8">
-      <h3>Other Things that I teach:</h3> 
-      <button type="button" class="btn btn-primary btn-sm"> #Carpentry</button>
-      <button type="button" class="btn btn-info btn-sm"> #Fishing</button>
-      <button type="button" class="btn btn-warning btn-sm"> #Hockey</button>
-      <p>Hello my name is Frank I am very good at teaching.  Please ask me to teach you<p>
-      <h4>Years of Experience: 7
-      </div>
-      <div class="col-md-2">
-        <div style="float: right;">
-          <button type="button" class="btn btn-success">Contact Me</button>
+
+        <div class="col-md-8">
+          <h3>Other Things that I teach:</h3>
+          <% u_id = userskill.user_id %>
+            <% UserSkill.where(user_id: u_id).limit(3).each do |skill| %>
+            <a href="" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
+          <% end %>     
+          <p><%= userskill.user.about%></p>
+          <h4><%= userskill.years_experience%> Year of experience</h4>
         </div>
-      </div>
 
-    </div> 
+        <div class="col-md-2">
+          <div style="float: right;">
+            <a href="/profile/<%= userskill.user.id%>" type="button" class="btn btn-success">Contact Me </a>
+          </div>
+        </div>
+
+      </div>
+    <%end %>
   </div> 
 
  
@@ -62,13 +60,7 @@
     </div>
   </div>
 
-
 </div>
-
- 
- 
-
-
 
 </div>
 

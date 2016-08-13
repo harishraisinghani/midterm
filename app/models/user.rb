@@ -33,4 +33,11 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  # def display_skills
+  #   skills = self.user_skills.sort_by do |userskill|
+  #     1 - userskill.years_experience
+  #   end
+  # end
+
+
 end
