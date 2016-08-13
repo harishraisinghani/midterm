@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :user_skills
+  has_many :feedbacks
 
    has_many :fav_send, class_name: :Favourite, foreign_key: :user_id
    has_many :fav_send_users, through: :fav_send, class_name: :User
