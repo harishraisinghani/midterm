@@ -41,7 +41,8 @@ class FeedbackImporter
           end
         end
 
-        feedback = Feedback.create(user_id: user.id, rating: rating, user_type: person_being_rated,content: content) 
+        feedback = Feedback.create(profile_id: rand(1..30), user_id: user.id, rating: rating, user_type: person_being_rated, content: content) 
+      
       end
 
     end
