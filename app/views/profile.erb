@@ -28,13 +28,47 @@
     </div>
 
     <div class="col-md-4">
+
       <strong>Rating as a Teacher:</strong>
-      <img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive">
+        <table>
+          <tr>
+            <td style="padding-right:10px">
+              <label for="input-4" class="control-label">Likes</label>
+            </td>
+            <td>
+              <input id="input-4" name="input-4" value="<%=@teacher_avg_feedback%>" class="rating-loading">
+            </td>
+          </tr>
+        </table>
+
+      <script>
+        $(document).on('ready', function(){
+          $('#input-4').rating({displayOnly: true, step: 0.5});
+        });
+      </script>
+
+      <!--<img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive">-->
+
     </div>
 
     <div class="col-md-4">
       <strong>Rating as a Student:</strong>
-      <img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive">
+       <table>
+          <tr>
+            <td style="padding-right:10px">
+              <label for="input-5" class="control-label">Likes</label>
+            </td>
+            <td>
+              <input id="input-5" name="input-5" value="<%=@student_avg_feedback%>" class="rating-loading">
+            </td>
+          </tr>
+        </table>
+        <script>
+        $(document).on('ready', function(){
+            $('#input-5').rating({displayOnly: true, step: 0.5});
+        });
+        </script>
+     <!-- <img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive"> -->
     </div>
   </div>
 

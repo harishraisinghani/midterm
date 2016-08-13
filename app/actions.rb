@@ -27,10 +27,29 @@ get '/search/:skill_id' do
 end
 
 get '/profile/:id' do
+
   if is_logged_in?
+
     @user = User.find(session[:user_id])
     @profile = User.find(params['id'])
+   
+    @teacher_avg_feedback=@profile.feedbacks.where(user_type:2).average(:rating)
+    @student_avg_feedback=@profile.feedbacks.where(user_type:1).average(:rating)
+
+    if @teacher_avg_feedback
+      @teacher_avg_feedback.to_i
+    else
+      @teacher_avg_feedback = 0
+    end
+
+    if @student_avg_feedback
+      @student_avg_feedback.to_i
+    else
+      @student_avg_feedback = 0
+    end
+    
     erb :profile
+
   else
     redirect '/'
   end 

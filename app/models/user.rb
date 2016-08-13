@@ -1,12 +1,21 @@
 class User < ActiveRecord::Base
 
   has_many :user_skills
-  has_many :fav_send, class_name: :Favourite, foreign_key: :user_id
-  has_many :fav_send_users, through: :fav_send, class_name: :User
-  has_many :fav_receive, class_name: :Favourite, foreign_key: :favourite_user_id
-  has_many :fav_receive_users, through: :fav_receive, class_name: :User
-  has_many :feedbacks
 
+   has_many :fav_send, class_name: :Favourite, foreign_key: :user_id
+   has_many :fav_send_users, through: :fav_send, class_name: :User
+   has_many :fav_receive, class_name: :Favourite, foreign_key: :favourite_user_id
+   has_many :fav_receive_users, through: :fav_receive, class_name: :User
+
+  #has_many :favourites
+
+
+
+  # @user.favourites.each do |favourite|
+  #   puts favouurite.favourite_user.name
+  # end
+
+  # people_that_fav_me = Favourite.where(favourite_user: @user)
 
   validates :email,  
     presence: true,
