@@ -57,14 +57,18 @@ post '/favourites' do
 end
 
 post '/feedback' do
-  feedback = Feedback.new(
-    user_id: params[:user_id],
-    rating: params["input-4"],
-    user_type: 2,
-    content: params[:content]
-    )
-  feedback.save
-  redirect(back)
+  if is_logged_in?
+    feedback = Feedback.new(
+      user_id: params[:user_id],
+      rating: params["input-4"],
+      user_type: params[:user_type],
+      content: params[:content]
+      )
+    feedback.save
+    redirect(back)
+  else
+    redirect(back)
+  end
 end
 
 delete '/profile/:id/feedbacks/:id' do
