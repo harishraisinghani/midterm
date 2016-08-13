@@ -13,12 +13,11 @@ namespace :db do
 
   desc 'populate the test database with data'
   task :populate do
-  AppConfig.establish_connection
-  UserImporter.new.import
-  SkillImporter.new.import
-  FeedbackImporter.new.import
-  UserSkillsImporter.new.import
-
+    AppConfig.establish_connection
+    UserImporter.new.import
+    SkillImporter.new.import
+    FeedbackImporter.new.import
+    UserSkillsImporter.new.import
   end
 
 end

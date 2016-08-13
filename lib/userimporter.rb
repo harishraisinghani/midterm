@@ -5,12 +5,12 @@ class UserImporter
   end
 
   def import
-    field_names = ['first_name', 'last_name','email','picture']
-    puts "Importing users from '#{@filename}'"
+    field_names = ['first_name', 'last_name','email','picture','about']
+    puts "Importing skills from '#{@filename}'"
     failure_count = 0
     User.transaction do
       File.open(@filename).each do |line|
-        data = line.chomp.split(',')
+        data = line.chomp.split('#')
         attribute_hash = Hash[field_names.zip(data)]
         begin
           User.create!(attribute_hash)
@@ -23,9 +23,8 @@ class UserImporter
         end
       end
     end
-    failures = failure_count > 0 ? "(failed to create #{failure_count} student records)" : ''
+    failures = failure_count > 0 ? "(failed to create #{failure_count} user records)" : ''
     puts "\nDONE #{failures}\n\n"
   end
 
 end
- 
