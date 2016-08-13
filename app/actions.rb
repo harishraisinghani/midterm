@@ -37,13 +37,13 @@ get '/profile/:id' do
     @student_avg_feedback=@profile.feedbacks.where(user_type:1).average(:rating)
 
     if @teacher_avg_feedback
-      @teacher_avg_feedback.to_i
+      @teacher_avg_feedback
     else
       @teacher_avg_feedback = 0
     end
 
     if @student_avg_feedback
-      @student_avg_feedback.to_i
+      @student_avg_feedback
     else
       @student_avg_feedback = 0
     end
