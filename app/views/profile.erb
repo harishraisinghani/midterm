@@ -28,7 +28,6 @@
     </div>
 
     <div class="col-md-4">
-
       <strong>Rating as a Teacher:</strong>
         <table>
           <tr>
@@ -46,9 +45,6 @@
           $('#input-4').rating({displayOnly: true, step: 0.5});
         });
       </script>
-
-      <!--<img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive">-->
-
     </div>
 
     <div class="col-md-4">
@@ -68,20 +64,18 @@
             $('#input-5').rating({displayOnly: true, step: 0.5});
         });
         </script>
-     <!-- <img src="http://booksidekicks.com/wp-content/uploads/2014/04/Gold-star1.png" class="img-responsive"> -->
     </div>
   </div>
 
   <div class= "row">
     <div class="col-md-2">
-        <div class = "skills">
-          <br>
+      <div class = "skills">
+        <br>
+        My Skills:
           <ul>
-            <li><a href="#">Skill 1</a></li>
-            <li><a href="#">Skill 2</a></li>
-            <li><a href="#">Skill 3</a></li>
-            <li><a href="#">Skill 4</a></li>
-            <li><a href="#">Skill 5</a></li>
+            <% @profile.user_skills.each do |userskill| %>
+              <li><a href="/search/<%= userskill.skill_id %>"><%=Skill.find(userskill.skill_id).name %></a></li>
+            <% end %>
           </ul>
       </div>
     </div>
@@ -89,50 +83,37 @@
     <div class="col-md-8">
         <div class = "feedback">
           <br style="line-height: 250%">
-
           <div class="row">
             <div class="col-md-2">
               <div class="row">
-                <img src="http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B85E200000578-3605456-image-m-37_1464040594420.jpg" class="img-responsive">
-              </div>
-              <div class="row">
-                <img src=https://www.newbrandanalytics.com/blog/wp-content/uploads/2013/03/3-5-stars.png class="img-responsive" >
+
               </div>
               <br>
             </div>
             <div class="col-md-10">
-              <%#<%= erb :feedback, locals: {:user => @user} %> 
+              <%= erb :feedback, locals: {:user => @user} %> 
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2">
-              <div class="row">
-                <img src="http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B85E200000578-3605456-image-m-37_1464040594420.jpg" class="img-responsive">
-              </div>
-              <div class="row">
-                <img src=https://www.newbrandanalytics.com/blog/wp-content/uploads/2013/03/3-5-stars.png class="img-responsive" >
-              </div>
-              <br>
-            </div>
-            <div class="col-md-10">
-              <textarea class="form-control" rows="6">The Rock is the best damn Intercontinental Champion there ever was. The Rock is gonna lay the smackdown on your candy ass. How dare you, you little jabroni. The Rock is going to show you why he is, without a shadow of a doubt, the most electrifying man in sports entertainment. Hold the mic up, jabroni, before The Rock slaps the taste out of your mouth! IT DOESN'T MATTER WHAT YOUR NAME IS! </textarea><br>
-            </div>
-          </div>
+            <% @all_feedback = @profile.feedbacks %>
+            <% @all_feedback.each do |feedback| %>
+              <div class="col-md-2">
+                <!-- <div class="row">
+                  <img src="<%= @user.picture %>">
+                </div> -->
 
-          <div class="row">
-            <div class="col-md-2">
-              <div class="row">
-                <img src="https://www.cheme.cornell.edu/engineering2/customcf/iws_ai_faculty_display/ai_images/mjp31-profile.jpg" class="img-responsive">
+                <div class="row">
+                  Rating: <%= feedback.rating %>
+                </div>
               </div>
-              <div class="row">
-                <img src=https://www.newbrandanalytics.com/blog/wp-content/uploads/2013/03/3-5-stars.png class="img-responsive" >
+
+              <div class="col-md-10">
+                <div class="row">
+                  <textarea class="form-control"><%= feedback.content %></textarea><br>
+                </div>
               </div>
-              <br>
-            </div>
-            <div class="col-md-10">
-              <textarea class="form-control" rows="6">The Rock is the best damn Intercontinental Champion there ever was. The Rock is gonna lay the smackdown on your candy ass. How dare you, you little jabroni. The Rock is going to show you why he is, without a shadow of a doubt, the most electrifying man in sports entertainment. Hold the mic up, jabroni, before The Rock slaps the taste out of your mouth! IT DOESN'T MATTER WHAT YOUR NAME IS! </textarea><br>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
