@@ -5,27 +5,27 @@
   <div class= "row">
     <div class="col-md-2">
       <div class= "profile">
+        <h4 class="text-center"><%= @profile.display_name %></h4>
         <img src=<%= @profile.picture %> style="width:150px;height:150px;" class="img-circle">
-        <button class="btn btn-success"><%= @profile.display_name %></button>
+        <a href="mailto:<%= @profile.email %>" class="btn btn-success btn-block"> Connect with me </a>
       </div>
     </div>
-
-    <div class="col-md-8">
-      <div class="form-group">
-        <textarea class="form-control" name= "content" rows="5"><%= @profile.about %></textarea>
-      </div>
-    </div>
-    
-    <div class="col-md-2">
-      <a href="mailto:<%= @profile.email %>"><button class="btn btn-success btn-lg">Connect with me</button></a>
-    </div>
+    <div class="col-md-10">
+      <p class="jumbotron" name= "content"><%= @profile.about %></p>
+    </div> 
   </div>
 
+  <div class="row">
+    <div class = "col-md-2 skills" align="left">
+      <br>
+      <h4 class="text-center">My Skills:</h4>
+      <% @profile.user_skills.each do |userskill| %>
+        <a href="/search/<%= userskill.skill_id %>" type="button" class="btn btn-primary btn-block btn-sm pad-all"><%=Skill.find(userskill.skill_id).name %></a></li>
+        <% end %>
+      </div>
   <div class= "row">
-    <div class="col-md-2"></div>
-
-    <div class="col-md-4">
-      <strong>Rating as a Teacher: <%=@teacher_avg_feedback.round(1)%></strong>
+    <div class="col-md-4 center-rating">
+      <strong>Teacher Rating: <%=@teacher_avg_feedback.round(1)%></strong>
         <table>
           <tr>
             <td style="padding-right:10px">
@@ -42,10 +42,11 @@
           $('#input-4').rating({displayOnly: true, step: 0.5});
         });
       </script>
+
     </div>
 
-    <div class="col-md-4">
-      <strong>Rating as a Student: <%=@student_avg_feedback.round(1)%></strong>
+    <div class="col-md-4 center-rating">
+      <strong>Student  Rating: <%=@student_avg_feedback.round(1)%></strong>
        <table>
           <tr>
             <td style="padding-right:10px">
@@ -62,20 +63,11 @@
         });
         </script>
     </div>
+  </div> <!-- row -->
   </div>
 
   <div class= "row">
-    <div class="col-md-2">
-      <div class = "skills">
-        <br>
-        My Skills:
-          <ul style="list-style: none;">
-            <% @profile.user_skills.each do |userskill| %>
-              <li><a href="/search/<%= userskill.skill_id %>" type="button" class="btn btn-primary btn-sm"><%=Skill.find(userskill.skill_id).name %></a></li>
-            <% end %>
-          </ul>
-      </div>
-    </div>
+  <div class="col-md-2"></div>
 
     <div class="col-md-8">
         <div class = "feedback">
@@ -83,13 +75,14 @@
           <div class="row">
             <div class="col-md-2">
               <div class="row">
-
               </div>
               <br>
             </div>
-            <div class="col-md-10">
+
+            <div class="col-md-10 text-center">
               <%= erb :feedback, locals: {:user => @profile} %> 
             </div>
+
           </div>
 
           <div class="row">
@@ -97,10 +90,6 @@
             <% @all_feedback = @all_feedback.sort_by { |feedback| feedback.created_at }.reverse %> 
             <% @all_feedback.each do |feedback| %>
               <div class="col-md-2">
-                <!-- <div class="row">
-                  <img src="<%= @user.picture %>">
-                </div> -->
-
                 <div class="row">
                   Rating: <%= feedback.rating %>
                 </div>
@@ -108,7 +97,7 @@
 
               <div class="col-md-10">
                 <div class="row">
-                  <textarea class="form-control"><%= feedback.content %></textarea><br>
+                  <p class="form-control"><%= feedback.content %></textarea><br>
                 </div>
               </div>
             <% end %>

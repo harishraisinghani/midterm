@@ -1,13 +1,41 @@
+body {
+  color: grey;
+}
+
+
+#background {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(60deg, #7ad9c9, #b0b1b0)
+}
 
 .background-img{
   background-image: url(http://blueandgoldonline.org/wp/wp-content/uploads/2015/05/1396195125942.jpg);
   background-size: cover;
 }
 
-#background {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(60deg, #7ad9c9, #b0b1b0)
+.navbar-default .navbar-nav>li>a:hover {
+  color: #333;
+  background-color: rgba(156, 39, 176, 0.52);
+}
+
+.full-size {
+  width:100%;
+}
+
+.place-popup{
+  margin-top: -8%;
+  margin-left: ;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: 56px;
+}
+.img-circle {
+    border-radius: 50%;
+    margin: 10px;
 }
 
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
@@ -17,6 +45,11 @@
 
 .center{
   margin-top: 61%;
+}
+
+.center-rating{
+  margin-top: 1%;
+  margin-left: 7%;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -75,11 +108,15 @@
 }
 
 .btn-info {
-    background-image: none;
-    color: #fff;
-    background-color: #a81cc0;
-    border-color: #46b8da;
+  background-image: none;
+  color: white;
+  background-color: #a81cc0;
+  border-color: #46b8da;
 }
+
+/*.navbar-default .navbar-nav>li>a {
+  color: #777;
+}*/
 
 .search_row {
   margin-top: 430px;
@@ -124,5 +161,29 @@
   background-size: cover;
   height: 315px;
 }
+
+.select-style {
+  margin-left: 40%;
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fafafa url("http://www.knot6.com/wp-content/themes/twentytwelve-knot6/img/icon-select-arrow1.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
 
 
