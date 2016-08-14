@@ -1,16 +1,15 @@
-<div id="popup-form">
-  <form method="post" action="/feedback">
-    
-    <label for="input-4" class="control-label">Rate Your Session</label>
-    <input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
 
-    <select name="user_type">
-      <option value="1">Student</option>
-      <option value="2">Teacher</option>
-    </select>
-    
-    <input type="hidden" name="user_id" value="<%= @profile.id %>">
-    <textarea name= "content" rows="5" cols="50">Enter your review here</textarea>
-    <input value="Submit" type="submit">
-  </form>
-</div>
+<form method="post" action="/feedback">
+  
+  <label for="input-4" class="control-label">Rate Your Session</label>
+  <input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+
+  <select name="user_type">
+    <option value="1">Student</option>
+    <option value="2">Teacher</option>
+  </select>
+  
+  <input type="hidden" name="profile_id" value="<%= @profile.id %>">
+  <textarea name= "content" rows="5" cols="50">Enter your review here</textarea>
+  <input value="Submit" type="submit">
+</form>

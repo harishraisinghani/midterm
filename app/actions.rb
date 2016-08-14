@@ -2,12 +2,17 @@ helpers do
   def is_logged_in?
     session[:user_id] != nil
   end
+
+  def set_current_user_and_session
+    @user = User.find(2) #hard coding logged in user
+    session[:user_id] = @user.id
+  end
+
 end
 
 # Homepage (Root path)
 get '/' do
-  @user = User.find(2)
-  session[:user_id] = @user.id
+  set_current_user_and_session
   erb :index
 end
 
@@ -20,16 +25,14 @@ post '/' do
 end
 
 get '/search/:skill_id' do
-  if is_logged_in?
-    @user = User.find(session[:user_id])
-  end
+  set_current_user_and_session if is_logged_in?
   erb :search
 end
 
 get '/profile/:id' do
 
   if is_logged_in?
-    @user = User.find(session[:user_id])
+    set_current_user_and_session
     @profile = User.find(params['id'])
    
     @teacher_avg_feedback=@profile.feedbacks.where(user_type:2).average(:rating)
@@ -58,11 +61,13 @@ end
 
 post '/feedback' do
   if is_logged_in?
+    set_current_user_and_session
     feedback = Feedback.new(
-      user_id: params[:user_id],
+      user_id: params[:profile_id],
       rating: params["input-4"],
       user_type: params[:user_type],
-      content: params[:content]
+      content: params[:content],
+      profile_id: @user.id
       )
     feedback.save
     redirect(back)
@@ -71,8 +76,10 @@ post '/feedback' do
   end
 end
 
-delete '/profile/:id/feedbacks/:id' do
- "for feedback deletion"
+delete '/feedback/:id' do
+  target_feedback=Feedback.find(params[:id])
+  target_feedback.destroy
+  redirect(back)
 end
 
 post 'profile/skills' do
