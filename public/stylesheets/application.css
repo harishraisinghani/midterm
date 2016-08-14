@@ -22,6 +22,10 @@ body {
   width:100%;
 }
 
+.center-skills{
+  margin-top: -6%;
+}
+
 .pad-feedback{
   padding-left: 20px;
   padding-right: 15px;
