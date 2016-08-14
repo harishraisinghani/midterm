@@ -10,8 +10,6 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
 
 # These gems are only installed when run as `bundle install --without production`
 group :development, :test do
