@@ -78,9 +78,10 @@
               </div>
               <br>
             </div>
-
-            <div class="col-md-10 text-center">
-              <%= erb :feedback, locals: {:user => @profile} %> 
+            <div class="col-md-10">
+              <% if Feedback.where(user_id: @profile.id).where(profile_id: @user.id).empty? %> <%#Need to change this if adding session objects %>
+                <%= erb :feedback, locals: { :user => @profile}%> 
+              <% end %>
             </div>
 
           </div>
@@ -97,7 +98,14 @@
 
               <div class="col-md-10">
                 <div class="row">
-                  <p class="form-control"><%= feedback.content %></textarea><br>
+
+                  <p class="form-control"><%= feedback.content %></p><br>
+                    <div class="delete-button">
+                      <% if feedback.profile_id == @user.id %>
+                        <%= erb :delete, locals: {:feedback => feedback} %>
+                      <% end %>
+                    </div>
+                  <br>
                 </div>
               </div>
             <% end %>
