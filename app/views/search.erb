@@ -37,7 +37,7 @@
         <div class="col-md-8">
           <h3>My Other Skills Include:</h3>
           <% u_id = userskill.user_id %>
-            <% UserSkill.where(user_id: u_id).limit(3).each do |skill| %>
+            <% UserSkill.where(user_id: u_id).where("skill_id != ?", params['skill_id']).limit(3).each do |skill| %>
             <a href="<%= Skill.find(skill.skill_id).id %>" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
           <% end %>     
           <p class="pad-all"><strong>About me:</strong><br>
