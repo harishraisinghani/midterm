@@ -18,9 +18,14 @@ end
 
 post '/' do
   skill = Skill.find_by(name: params[:content].capitalize)
-  @skill_id = skill.id
-  if is_logged_in?
-    redirect "search/#{@skill_id}"
+  if skill.nil?
+    flash[:warning] = "This skill isn't available yet"
+    redirect(back)
+  else
+    @skill_id = skill.id
+    if is_logged_in?
+      redirect "search/#{@skill_id}"
+    end
   end
 end
 

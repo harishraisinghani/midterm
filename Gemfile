@@ -9,6 +9,8 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 
 
+gem 'rack-flash3'
+
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
  
