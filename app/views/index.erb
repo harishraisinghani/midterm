@@ -2,8 +2,8 @@
 
   <div class="container">
     <div class="row search_row">
-      <div class="input-group col-sm-12">
-        <form class="input-group col-sm-12" method="post">
+      <div class="input-group col-xs-12">
+        <form class="input-group col-xs-12" method="post">
           <input type="text" class="form-control searchbar1" name="content" id="search" placeholder="What do you want to learn?">
           <span class="input-group-btn">
             <button class="btn btn-default search_button1" type="submit">Learn!</button>
@@ -14,25 +14,21 @@
   </div>
   <div id='flash' class='warning'>
     <%= flash[:warning] %>
-  </div>
   <div class="row nav_buttons">
-    <span class="banner">
-      <a href="/search/6">
-        <div class="col-md-4 col_blk col_hov">
+    <a href="/search/6">
+      <div class="col-md-4 col_blk col_hov">
+      <h2 class="spanner js-indent"><span class="text-banner">Javascript</span></h2>  
       </div>
     </a>
-    </span>
-      <span class="banner">   
-      <a href="/search/4">
-        <div class="col-md-4 col_red col_hov">
-        </div> 
-      </a>  
-    </span>
-    <span class="banner">
-      <a href="/search/3">
-        <div class="col-md-4 col_green col_hov">
-        </div>
-      </a>
-    </span>
+    <a href="/search/4">
+      <div class="col-md-4 col_red col_hov">
+        <h2 class="spanner"><span class="text-banner">Carpentry</span></h2>
+      </div> 
+    </a> 
+    <a href="/search/3">
+      <div class="col-md-4 col_green col_hov">
+        <h2 class="spanner"><span class="text-banner">Guitar</span></h2>
+      </div>
+    </a>
   </div>
 </div> <!-- close background -->
