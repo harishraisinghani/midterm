@@ -3,20 +3,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= Skill.find(params[:skill_id]).name %> <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-        <% @skills.each do |skill| %>
-          <li><a href="/search/<%=skill.id%>"><%= skill.name %></a></li>
-        <% end %>
-        </ul>
+    <div class="col-xs-6">
+      <div class="row">
+        <div class="col-xs-4">
+          <h4 class="text-center">Search for a Skill:</h4>
+        </div>
+        <div class="col-xs-8">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= Skill.find(params[:skill_id]).name %> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            <% @skills.each do |skill| %>
+              <li><a href="/search/<%=skill.id%>"><%= skill.name %></a></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-8 filter-area" >
+    <div class="col-xs-6 filter-area" >
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filter By: <span class="caret"></span>
