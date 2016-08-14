@@ -30,10 +30,13 @@ post '/' do
 end
 
 get '/search/:skill_id' do
-
+  filter = params[:filter]
   if is_logged_in?
     set_current_user_and_session 
     @matches = UserSkill.where("skill_id = ?", params['skill_id']).paginate(:page => params[:page], :per_page => 5)
+    if filter == "2"
+      @matches = @matches.order(years_experience: :desc)
+    end
     erb :search
   end
 end

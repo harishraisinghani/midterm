@@ -12,12 +12,24 @@
     </div>
 
     <div class="col-md-8 filter-area" >
-      <span class="filter-results">Filter Results By:</span>  
+      <!-- Single button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter By: <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="/search/<%= params[:skill_id]%>?filter=1">Highest Reviews</a></li>
+          <li><a href="/search/<%= params[:skill_id] %>?filter=2">Years of Experience</a></li>
+        </ul>
+      </div>
+
+
+<!--       <span class="filter-results">Filter Results By:</span>  
       <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highest Reviews 
       <span class="caret"></span>
       </button>
         <ul class="dropdown-menu">
-        </ul>  
+        </ul> -->  
     </div>
   </div>
 
