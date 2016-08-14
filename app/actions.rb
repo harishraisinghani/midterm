@@ -93,13 +93,15 @@ post '/feedback' do
       content: params[:content],
       profile_id: @user.id
       )
+    binding.pry
     feedback.save
     redirect(back)
   end
 end
 
 delete '/feedback/:id' do
-  target_feedback=Feedback.find(params[:id])
+  set_current_user_and_session
+  target_feedback = Feedback.find(params[:id])
   target_feedback.destroy
   redirect(back)
 end
