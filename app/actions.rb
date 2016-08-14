@@ -38,7 +38,10 @@ get '/profile/:id' do
   if is_logged_in?
     set_current_user_and_session
     @profile = User.find(params['id'])
-   
+
+    @all_feedback = @profile.feedbacks #sort_by { |feedback| feedback.created_at }.reverse
+    @all_feedback = @profile.feedbacks.order('created_at').reverse_order.paginate(:page => params[:page], :per_page => 3)
+
     @teacher_avg_feedback=@profile.feedbacks.where(user_type:2).average(:rating)
     @student_avg_feedback=@profile.feedbacks.where(user_type:1).average(:rating)
 
