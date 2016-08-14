@@ -17,7 +17,6 @@
     </div>
 
     <div class="col-md-8 filter-area" >
-      <!-- Single button -->
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filter By: <span class="caret"></span>
@@ -27,14 +26,6 @@
           <li><a href="/search/<%= params[:skill_id] %>?filter=2">Years of Experience</a></li>
         </ul>
       </div>
-
-
-<!--       <span class="filter-results">Filter Results By:</span>  
-      <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highest Reviews 
-      <span class="caret"></span>
-      </button>
-        <ul class="dropdown-menu">
-        </ul> -->  
     </div>
   </div>
 
@@ -49,14 +40,20 @@
             <a href="/profile/<%= userskill.user.id %>" class="btn btn-success btn-block pad-all"><%= userskill.user.display_name %> </a>
           </div>
         </div>
-
-
         <div class="col-md-8">
-          <h3>My Other Skills Include:</h3>
-          <% u_id = userskill.user_id %>
-            <% UserSkill.where(user_id: u_id).where("skill_id != ?", params['skill_id']).limit(3).each do |skill| %>
-            <a href="<%= Skill.find(skill.skill_id).id %>" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
-          <% end %>     
+          <div class="row">
+          <div class="col-md-6">
+            <h3>My Other Skills Include:</h3>
+            <% u_id = userskill.user_id %>
+              <% UserSkill.where(user_id: u_id).where("skill_id != ?", params['skill_id']).limit(3).each do |skill| %>
+              <a href="<%= Skill.find(skill.skill_id).id %>" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
+            <% end %>
+          </div>  
+            <div class="col-md-6">
+              <h3>I want to Learn:</h3>
+            </div>
+          </div>
+
           <p class="pad-all"><strong>About me:</strong><br>
           <%= userskill.user.about%></p>
           <h4><%= userskill.years_experience%> Years of experience</h4>
