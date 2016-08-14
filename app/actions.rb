@@ -75,8 +75,6 @@ post '/feedback' do
       )
     feedback.save
     redirect(back)
-  else
-    redirect(back)
   end
 end
 
