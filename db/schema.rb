@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813220113) do
+ActiveRecord::Schema.define(version: 20160814175128) do
 
   create_table "favourites", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160813220113) do
     t.integer  "years_experience"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "learn_teach"
   end
 
   create_table "users", force: :cascade do |t|
