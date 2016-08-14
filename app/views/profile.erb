@@ -83,8 +83,7 @@
             </div>
 
               <div class="row pad-feedback">
-                <% @all_feedback = @profile.feedbacks %>
-                <% @all_feedback = @all_feedback.sort_by { |feedback| feedback.created_at }.reverse %> 
+            
                 <% @all_feedback.each do |feedback| %>
                   <div class="col-md-12">
                     <div class="row">
@@ -105,6 +104,10 @@
         </div>
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <%=will_paginate @all_feedback%>
+      </div>
+    </div>
   </div>
 </div><!-- background gradient close -->

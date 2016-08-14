@@ -46,6 +46,8 @@ get '/profile/:id' do
 
     @all_feedback = @profile.feedbacks #sort_by { |feedback| feedback.created_at }.reverse
     @all_feedback = @profile.feedbacks.order('created_at').reverse_order.paginate(:page => params[:page], :per_page => 3)
+    
+   
 
     @teacher_avg_feedback=@profile.feedbacks.where(user_type:2).average(:rating)
     @student_avg_feedback=@profile.feedbacks.where(user_type:1).average(:rating)
