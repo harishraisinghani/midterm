@@ -18,6 +18,13 @@ body {
   background-color: rgba(156, 39, 176, 0.52);
 }
 
+.btn-success{
+  background-image: none;
+  color: white;
+  background-color: #a81cc0;
+  border-color: #46b8da; 
+}
+
 .full-size {
   width:100%;
 }
