@@ -3,87 +3,73 @@
 
 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Skills<span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-        </ul>
-      </div>
-
-      <div class="col-md-8 filter-area" >
-        <span class="filter-results pad-right ">Filter Results By:</span>  
-        <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highest Reviews 
-        <span class="caret"></span>
-        </button>
-          <ul class="dropdown-menu">
-          </ul>  
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Skills<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+      </ul>
     </div>
+
+    <div class="col-md-8 filter-area" >
+      <span class="filter-results pad-right ">Filter Results By:</span>  
+      <button class="btn btn-default btn-lg dropdown-toggle standard-btn-width"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highest Reviews 
+      <span class="caret"></span>
+      </button>
+        <ul class="dropdown-menu">
+        </ul>  
+    </div>
+  </div>
 
 
   <div class="searchresults" style="padding: 5em 0em 5em 0em;">
-   
-    <% @matches.each do |userskill| %>
+    <% matches = UserSkill.where("skill_id = ?", params['skill_id']) %>
+    <% matches.each do |userskill| %>
       <div class="row divider">
         <div class="col-md-2 text-center">
           <div class="pad-all">
             <img src="http://klaus-doldinger.com/wp-content/uploads/2015/05/Passport-Ernst-Stroer.jpg" alt="Mountain View" style="width:150px;height:150px;" class="img-circle">
             <a href="/profile/<%= userskill.user.id %>" class="btn btn-success btn-block pad-all"><%= userskill.user.display_name %> </a>
-
           </div>
-
-
-          <div class="col-md-8">
-            <h3>My Other Skills Include:</h3>
-            <% u_id = userskill.user_id %>
-              <% UserSkill.where(user_id: u_id).where("skill_id != ?", params['skill_id']).limit(3).each do |skill| %>
-              <a href="<%= Skill.find(skill.skill_id).id %>" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
-            <% end %>     
-            <p class="pad-all"><strong>About me:</strong><br>
-            <%= userskill.user.about%></p>
-            <h4><%= userskill.years_experience%> Years of experience</h4>
-          </div>
-
-          <div class="col-md-2">
-            <div style="float: right;">
-              <a href="/profile/<%= userskill.user.id%>" type="button" class="btn btn-lg btn-success center">Contact Me </a>
-            </div>
-          </div>
-
         </div>
-      <%end %>
-    </div> 
 
-   
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-success">Previous</button>
-      1 of 100
-      <button type="button" class="btn btn-success">Next</button>
+
+        <div class="col-md-8">
+          <h3>My Other Skills Include:</h3>
+          <% u_id = userskill.user_id %>
+            <% UserSkill.where(user_id: u_id).limit(3).each do |skill| %>
+            <a href="<%= Skill.find(skill.skill_id).id %>" type="button" class="btn btn-primary btn-sm"><%= Skill.find(skill.skill_id).name %></a>
+          <% end %>     
+          <p class="pad-all"><strong>About me:</strong><br>
+          <%= userskill.user.about%></p>
+          <h4><%= userskill.years_experience%> Years of experience</h4>
+        </div>
+
+        <div class="col-md-2">
+          <div style="float: right;">
+            <a href="/profile/<%= userskill.user.id%>" type="button" class="btn btn-lg btn-success center">Contact Me </a>
+          </div>
+        </div>
+
       </div>
-<<<<<<< HEAD
     </div>
-=======
     <%end %>
   </div> 
 
+ 
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-      <!--<button type="button" class="btn btn-success">Previous</button>
-      1 of 100
-      <button type="button" class="btn btn-success">Next</button> -->
-      <%= will_paginate @matches %>
-
-    </div> 
-  </div>
->>>>>>> pagination2
-
+    <button type="button" class="btn btn-success">Previous</button>
+    1 of 100
+    <button type="button" class="btn btn-success">Next</button>
+    </div>
   </div>
 
-  </div>
+</div>
+
+</div>
 </div><!-- background gradient close -->
 
 
