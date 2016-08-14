@@ -30,6 +30,7 @@ post '/' do
 end
 
 get '/search/:skill_id' do
+  @skills = Skill.all
   filter = params[:filter]
   if is_logged_in?
     set_current_user_and_session 
