@@ -1,5 +1,4 @@
 <div id="popup-form" class="place-popup">
-  
   <form method="post" action="/feedback"> 
     <label for="input-4" class="control-label text-center">Rate Your Session</label><br>
     <div class="select-style">
@@ -9,9 +8,8 @@
       </select>
     </div>
     <input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="false">
-    <input type="hidden" name="user_id" value="<%= @profile.id %>">
+    <input type="hidden" name="profile_id" value="<%= @profile.id %>">
       <textarea name="content" rows="5" cols="50" placeholder="Enter your review here" class="full-size"></textarea><br>
     <input value="Submit" type="submit" class="btn btn-success btn-block pad-all">
   </form>
-
 </div>

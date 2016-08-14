@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-10">
               <% if Feedback.where(user_id: @profile.id).where(profile_id: @user.id).empty? %> <%#Need to change this if adding session objects %>
-                <%= erb :feedback, locals: { :user => @profile}%> 
+                <%= erb :feedback, locals: { :user => @profile } %>
               <% end %>
             </div>
 
