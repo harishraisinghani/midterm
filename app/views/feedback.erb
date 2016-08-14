@@ -1,16 +1,17 @@
-<div id="popup-form">
+<div id="popup-form" class="place-popup">
   <form method="post" action="/feedback">
     
-    <label for="input-4" class="control-label">Rate Your Session</label>
-    <input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
-
-    <select name="user_type">
-      <option value="1">Student</option>
-      <option value="2">Teacher</option>
-    </select>
     
+    <label for="input-4" class="control-label text-center">Rate Your Session</label><br>
+    <div class="select-style">
+      <select name="user_type">
+        <option value="1">Student</option>
+        <option value="2">Teacher</option>
+      </select>
+    </div>
+    <input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="false">
     <input type="hidden" name="user_id" value="<%= @profile.id %>">
-    <textarea name= "content" rows="5" cols="50">Enter your review here</textarea>
-    <input value="Submit" type="submit">
+      <textarea name="content" rows="5" cols="50" placeholder="Enter your review here" class="full-size"></textarea><br>
+    <input value="Submit" type="submit" class="btn btn-success btn-block pad-all">
   </form>
 </div>
