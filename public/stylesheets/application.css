@@ -82,7 +82,7 @@ body {
 }
 
 .divider {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid grey;
 }
 
 .filter-area {
@@ -173,6 +173,23 @@ body {
   background-image:url(https://img.grouponcdn.com/iam/pPzaS8gN4HX9bnpfwfUi/8A-2048x1242/v1/c700x420.jpg);
   background-size: cover;
   height: 315px;
+}
+
+.text-banner{
+  color: white; 
+  font: bold 24px/45px Helvetica, Sans-Serif; 
+  letter-spacing: -1px;  
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px; 
+}
+
+.js-indent{
+  margin-left: 10px;
+}
+
+.spanner {
+  margin-top: 0;
 }
 
 .select-style {

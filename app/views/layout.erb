@@ -23,7 +23,20 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/profile/<%= session[:user_id] %>">Teach something</a></li>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Teach something <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+              <% get_all_skills.each do |skill| %>
+                <% if !@user.user_skills.where(skill_id: skill.id).empty? %>
+                  <li><a href="/search/<%=skill.id%>"><%= skill.name %></a></li>
+                <% end %>
+              <% end %>
+              </ul>
+            </div>
+          </li>
           <li><a href="/profile/<%= session[:user_id] %>"><%= @user.display_name %></a></li>
           <li><a href="#" class="btn btn-info logout-btn">logout</a></li>
         </ul>

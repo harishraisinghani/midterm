@@ -8,6 +8,10 @@ helpers do
     session[:user_id] = @user.id
   end
 
+  def get_all_skills
+    @skills = Skill.all
+  end
+
 end
 
 # Homepage (Root path)
@@ -30,13 +34,15 @@ post '/' do
 end
 
 get '/search/:skill_id' do
-  @skills = Skill.all
+  get_all_skills
   filter = params[:filter]
   if is_logged_in?
     set_current_user_and_session 
     @matches = UserSkill.where("skill_id = ?", params['skill_id']).paginate(:page => params[:page], :per_page => 5)
     if filter == "2"
       @matches = @matches.order(years_experience: :desc)
+    # elsif filter == "1"
+    #   @matches = User.connection.select_all("SELECT users.*, COUNT(feedbacks.id) AS feedbacks_count FROM users JOIN user_skills on user_skills.user_id = users.id JOIN feedbacks ON feedbacks.user_id = users.id WHERE user_skills.skill_id = 10 GROUP BY users.id ORDER BY feedbacks_count DESC;").paginate(:page => params[:page], :per_page => 5)
     end
     erb :search
   end
