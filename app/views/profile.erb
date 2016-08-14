@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-md-4 center-rating">
-      <strong>Student  Rating: <%=@student_avg_feedback.round(1)%></strong>
+      <strong>Student Rating: <%=@student_avg_feedback.round(1)%></strong>
        <table>
           <tr>
             <td style="padding-right:10px">
@@ -99,7 +99,7 @@
               <div class="col-md-10">
                 <div class="row">
 
-                  <p class="form-control"><%= feedback.content %></p><br>
+                  <p class="form-control"><%= feedback.content %></p>
                     <div class="delete-button">
                       <% if feedback.profile_id == @user.id %>
                         <%= erb :delete, locals: {:feedback => feedback} %>
