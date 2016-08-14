@@ -5,7 +5,9 @@
         <div class= "profile">
           <h4 class="text-center"><%= @profile.display_name %></h4>
           <img src=<%= @profile.picture %> style="width:150px;height:150px;" class="img-circle">
-          <a href="mailto:<%= @profile.email %>" class="btn btn-success btn-block"> Connect with me </a>
+          <% if @user.id != @profile.id %>
+            <a href="mailto:<%= @profile.email %>" class="btn btn-success btn-block"> Connect with me </a>
+          <% end %>
         </div>
       </div>
       <div class="col-md-10">
