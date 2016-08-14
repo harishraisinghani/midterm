@@ -215,5 +215,18 @@ body {
     outline: none;
 }
 
+.medium-font {
+  font-size:20px;
+}
+
+.stronger-font {
+  font-size: 28px;
+  color: black;
+  font-weight: bold
+}
+
+.left-align {
+  text-align: left;
+}
 
 
