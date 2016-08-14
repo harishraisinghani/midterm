@@ -23,8 +23,8 @@
 
 
   <div class="searchresults" style="padding: 5em 0em 5em 0em;">
-    <% matches = UserSkill.where("skill_id = ?", params['skill_id']) %>
-    <% matches.each do |userskill| %>
+ 
+    <% @matches.each do |userskill| %>
       <div class="row divider">
         <div class="col-md-2 text-center">
           <div class="pad-all">
@@ -56,12 +56,10 @@
     <%end %>
   </div> 
 
- 
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-    <button type="button" class="btn btn-success">Previous</button>
-    1 of 100
-    <button type="button" class="btn btn-success">Next</button>
+      <%=will_paginate @matches %>
+
     </div>
   </div>
 

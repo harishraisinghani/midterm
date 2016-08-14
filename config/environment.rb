@@ -25,6 +25,10 @@ end
 # Development and Test Sinatra Configuration
 configure :development, :test do
   require 'pry'
+  require 'will_paginate'
+  require 'will_paginate/active_record'
+  require 'will_paginate-bootstrap'
+
 end
 
 # Production Sinatra Configuration

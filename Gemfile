@@ -8,6 +8,10 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 
+
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+ 
 gem 'puma'
 gem 'tux'
 

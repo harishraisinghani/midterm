@@ -25,8 +25,12 @@ post '/' do
 end
 
 get '/search/:skill_id' do
-  set_current_user_and_session if is_logged_in?
-  erb :search
+
+  if is_logged_in?
+    set_current_user_and_session 
+    @matches = UserSkill.where("skill_id = ?", params['skill_id']).paginate(:page => params[:page], :per_page => 5)
+    erb :search
+  end
 end
 
 get '/profile/:id' do
