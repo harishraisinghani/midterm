@@ -88,7 +88,7 @@ body {
 
 .navbar>.container-fluid .navbar-brand {
     margin-left: -27px;
-    padding-top: 14px;
+    padding-top: 17px;
     margin-top: -9px;
 }
 
@@ -142,6 +142,14 @@ body {
   font-size: 27px;
   letter-spacing: -1px;
 }*/
+
+.title-text{
+  font-size: 25px;
+  color: yellow;
+  font-weight: 1px;
+  letter-spacing: -1px;
+  font-family: helvetica;
+}
 
 .subdued{
   color: #999;

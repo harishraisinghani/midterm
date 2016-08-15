@@ -4,7 +4,7 @@ helpers do
   end
 
   def set_current_user_and_session
-    @user = User.find(2) #hard coding logged in user
+    @user = User.find(31) #hard coding logged in user
     session[:user_id] = @user.id
   end
 
