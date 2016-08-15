@@ -93,9 +93,12 @@ post '/feedback' do
       content: params[:content],
       profile_id: @user.id
       )
-    binding.pry
-    feedback.save
-    redirect(back)
+    if
+      feedback.save
+      redirect(back)
+    else
+      redirect'/'
+    end
   end
 end
 
