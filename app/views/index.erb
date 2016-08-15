@@ -13,10 +13,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 text-center">
-      <div id='flash' class='warning'>
-        <%= flash[:warning] %>
+    <div class="col-xs-4 col-xs-offset-4">
+    <% if flash[:warning] %>
+      <div class="alert alert-danger text-center" id="success-alert">
+        <strong> <%= flash[:warning] %>  </strong>
       </div>
+    <% end %>
     </div>
   </div>
   <div class="row nav_buttons sticky-footer">
