@@ -14,7 +14,6 @@
         <p class="jumbotron" name= "content"><%= @profile.about %></p>
       </div> 
     </div>
-
     <div class="row">
       <div class = "col-md-2 skills" align="left">
         </div>
@@ -31,12 +30,6 @@
               </td>
             </tr>
           </table>
-
-        <script>
-          $(document).on('ready', function(){
-            $('#input-4').rating({displayOnly: true, step: 0.5});
-          });
-        </script>
       </div>
 
       <div class="col-md-4 center-rating">
@@ -53,7 +46,17 @@
           </table>
           <script>
           $(document).on('ready', function(){
+
+              $('#input-4').rating({displayOnly: true, step: 0.5});
               $('#input-5').rating({displayOnly: true, step: 0.5});
+              $('#input-7').rating({displayOnly: true, step: 0.5});
+              $('#input-8').rating({displayOnly: true, step: 0.5});
+              $('#input-9').rating({displayOnly: true, step: 0.5});
+              $('#input-10').rating({displayOnly: true, step: 0.5});
+              $('#input-11').rating({displayOnly: true, step: 0.5});
+              $('#input-12').rating({displayOnly: true, step: 0.5});
+              $('#input-13').rating({displayOnly: true, step: 0.5});
+              $('#input-14').rating({displayOnly: true, step: 0.5});
           });
           </script>
       </div>
@@ -85,12 +88,22 @@
             </div>
 
               <div class="row pad-feedback">
-            
+                <%i=7%>
                 <% @all_feedback.each do |feedback| %>
                   <div class="col-md-12">
                     <div class="row">
                       <p class="form-control pad-left"><%= feedback.content %></p>
-                      <p class="pad-left"> Rating: <%= feedback.rating %></p>
+                        <table>
+                          <tr>
+                            <td style="padding-right:10px">
+                              <label for="input-<%=i%>" class="control-label medium-font">Rating </label>
+                            </td>
+                            <td>
+                              <input id="input-<%=i%>" name="input-<%=i%>" value=<%= feedback.rating %> class="rating-loading">
+                            </td>
+                          </tr>
+                        </table>
+                        <%i+=1%>
                         <div class="delete-button">
                           <% if feedback.profile_id == @user.id %>
                             <%= erb :delete, locals: {:feedback => feedback} %>
@@ -100,6 +113,7 @@
                     </div>
                   </div>
                 <% end %>
+                <%i=0%>
               </div>
             </div>
           </div>
